@@ -57,7 +57,7 @@ void loop() {
   if(Serial.available() > 0){
      // this is meant to bridge the transistion, needs work
      // Ideally I can clock the treadmill at the board's natural pwm and just use analog full time
-    pwint = (int)(pw*1.0*255);
+    pwint = (int)(pw*1.1*255);
     if(pwint > 255){
       pwint = 255;
     }
