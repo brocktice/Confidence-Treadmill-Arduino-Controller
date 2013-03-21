@@ -1,0 +1,1 @@
+The treadmill.ino file compiles in the Arduino IDE. Currently the control pin is 3, and is switched through a NPN transistor (controlled by pin 2) for safety. The controller just grounds the control line to the ground line from the treadmill. I will try to diagram my control circuit soon and upload it.
