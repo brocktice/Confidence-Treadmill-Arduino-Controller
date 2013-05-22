@@ -63,11 +63,14 @@ class App:
         self.speedLabel = Label(frame, textvariable=self.currentspeedString)
         self.speedLabel.pack(side=LEFT)
 
-        self.distancelabelLabel = Button(frame, text="Distance: ")
-        self.distancelabelLabel.pack(side=LEFT)
+        self.distancelabelButton = Button(frame, text="Distance: ", command=self.refresh)
+        self.distancelabelButton.pack(side=LEFT)
 
         self.distanceLabel = Label(frame, textvariable=self.currentdistanceString)
         self.distanceLabel.pack(side=LEFT)
+
+        self.resetButton = Button(frame, text="RESET", fg="red", command=self.reset)
+        self.resetButton.pack(side=LEFT)
 
     def sendspeed(self):
         self.update_odometer(self.currentspeed)
@@ -117,7 +120,16 @@ class App:
         if(self.running > 0):
             self.sendspeed()
 
+    def refresh(self):
+        self.update_odometer(self.currentspeed)
+
+    def reset(self):
+        self.miles = 0
+        self.refresh()
+        
 root=Tk()
+root.title("Treadmill Controller")
+
 app=App(root)
 root.mainloop()
 
